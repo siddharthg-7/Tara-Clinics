@@ -34,12 +34,8 @@ export function AppointmentSection() {
 
   return (
     <section id="appointment" className="py-20 lg:py-28 relative overflow-hidden bg-[#0b1b42]">
-      {/* Background Image & Overlay */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assests/backgroundtara.png')" }}
-      ></div>
-      <div className="absolute inset-0 z-0 bg-[#0b1b42]/85"></div>
+      {/* Background Overlay */}
+      <div className="absolute inset-0 z-0 bg-[#0b1b42]"></div>
       
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 z-0"></div>
       

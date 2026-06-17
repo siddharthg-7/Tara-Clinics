@@ -1,4 +1,4 @@
-import { IconMapPin, IconClock, IconPhone, IconMail, IconArrowRight, IconBrandFacebook, IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
+import { IconMapPin, IconPhone, IconMail, IconArrowRight, IconBrandFacebook, IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
 
 import taraLogo from '@/assets/tara_logo_cropped.svg';
 
@@ -7,11 +7,11 @@ export function Footer() {
     <footer id="contact" className="bg-gradient-to-br from-[#0b1b42] to-[#0a1532] text-slate-300 pt-20 pb-10 border-t border-blue-900/30">
       <div className="container max-w-[1400px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Column 1: About */}
           <div className="space-y-6">
             <div className="flex items-center mb-6">
-              <img src={taraLogo} alt="Tara Clinics Logo" className="h-[45px] w-auto filter brightness-0 invert" />
+              <img src={taraLogo} alt="Tara Clinics Logo" className="h-[45px] w-auto" />
             </div>
             <p className="text-[15px] leading-relaxed font-[500] text-slate-400">
               Providing quality healthcare in Gynecology, Obstetrics, Orthopedics and comprehensive medical care with compassion and excellence.
@@ -78,15 +78,6 @@ export function Footer() {
                   <span className="text-white font-[600]">10:00 AM - 10:30 PM</span>
                 </div>
               </div>
-              <div className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
-                <div className="w-[40px] h-[40px] rounded-full bg-pink/20 flex items-center justify-center shrink-0">
-                  <IconClock className="w-5 h-5 text-pink" stroke={1.5} />
-                </div>
-                <div>
-                  <p className="text-[13px] font-[700] text-pink uppercase tracking-wide">Emergency Care</p>
-                  <p className="text-[15px] font-[600] text-white">24/7 Available</p>
-                </div>
-              </div>
             </div>
 
             <div>
@@ -94,11 +85,11 @@ export function Footer() {
               <ul className="space-y-5">
                 <li className="flex items-start gap-4 text-[15px] font-[500] text-slate-400">
                   <IconMapPin className="w-5 h-5 text-pink shrink-0 mt-0.5" stroke={1.5} />
-                  <span>Nallagandla, Serilingampally,<br/>Hyderabad, Telangana - 500019</span>
+                  <span>Nallagandla, Serilingampally,<br />Hyderabad, Telangana - 500019</span>
                 </li>
                 <li className="flex items-center gap-4 text-[15px] font-[500] text-slate-400">
                   <IconPhone className="w-5 h-5 text-pink shrink-0" stroke={1.5} />
-                  <span>+91 99898 88776</span>
+                  <span>72079 05599</span>
                 </li>
                 <li className="flex items-center gap-4 text-[15px] font-[500] text-slate-400">
                   <IconMail className="w-5 h-5 text-pink shrink-0" stroke={1.5} />

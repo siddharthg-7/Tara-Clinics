@@ -1,45 +1,163 @@
-interface ProcessStep {
-  num: string;
-  title: string;
-  desc: string;
-}
+import React from 'react';
+import { Box, Stack, Typography } from '@mui/material';
 
-const STEPS: ProcessStep[] = [
-  { num: "01", title: "Book Appointment", desc: "Schedule your convenient visit via web or phone." },
-  { num: "02", title: "Consult Specialist", desc: "Meet our expert doctors for initial checkup." },
-  { num: "03", title: "Accurate Diagnosis", desc: "Advanced tests and thorough evaluation." },
-  { num: "04", title: "Personalized Treatment", desc: "Tailored treatment plan specifically for you." },
-  { num: "05", title: "Better Recovery", desc: "Continuous care and support for healthy life." },
+const steps = [
+  { id: "01", title: "Book\nAppointment", desc: "Schedule your\nconvenient slot" },
+  { id: "02", title: "Consult\nSpecialist", desc: "Meet our\nexpert doctors" },
+  { id: "03", title: "Accurate\nDiagnosis", desc: "Advanced\ntests &\nevaluation" },
+  { id: "04", title: "Personalized\nTreatment", desc: "Tailored\ntreatment plan\nfor you" },
+  { id: "05", title: "Better\nRecovery", desc: "Continuous\ncare for\nhealthy life" },
 ];
 
 export function ProcessSection() {
+  const activeStep = 2; // "03" is active
+
   return (
-    <section id="process" className="py-24 bg-slate-50 relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <Box component="section" id="process" sx={{ py: { xs: 8, md: 12 }, bgcolor: '#F8F9FE', position: 'relative', overflow: 'hidden' }}>
+      <Box sx={{ maxWidth: '1400px', mx: 'auto', px: 2 }}>
         
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-sm font-bold tracking-wider text-pink-dark uppercase mb-3">Your Journey With Us</h2>
-          <h3 className="text-3xl md:text-4xl font-extrabold text-medical-blue">Our Patient Care Process</h3>
-        </div>
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography 
+            variant="overline" 
+            sx={{ 
+              fontWeight: 800, 
+              letterSpacing: '0.1em', 
+              color: '#A855F7', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              mb: 1
+            }}
+          >
+            YOUR JOURNEY WITH US
+          </Typography>
+          <Typography 
+            variant="h3" 
+            sx={{ 
+              fontWeight: 800, 
+              color: '#1E293B', 
+              fontSize: { xs: '1.875rem', md: '2.5rem' },
+            }}
+          >
+            Our Patient Care Process
+          </Typography>
+        </Box>
+        
+        <Stack 
+          direction={{ xs: 'column', md: 'row' }}
+          spacing={{ xs: 2, md: 2, lg: 1 }}
+          sx={{ 
+            flexWrap: { xs: 'nowrap', md: 'wrap', lg: 'nowrap' },
+            justifyContent: "center",
+            alignItems: { xs: 'flex-start', md: 'center' },
+            rowGap: { xs: 0, md: 6 }, 
+            maxWidth: '1200px', 
+            mx: 'auto' 
+          }}
+        >
+          {steps.map((step, index) => {
+            const isCompleted = index < activeStep;
+            const isActive = index === activeStep;
+            const isUpcoming = index > activeStep;
 
-        <div className="relative max-w-6xl mx-auto">
-          {/* Static Background Track Line (Desktop) */}
-          <div className="hidden md:block absolute top-12 left-0 w-full h-1 bg-slate-200 z-0 rounded-full"></div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
-            {STEPS.map((step, i) => (
-              <div key={i} className="flex flex-col items-center text-center">
-                <div className="w-24 h-24 rounded-full bg-white border-4 border-slate-50 shadow-xl flex items-center justify-center text-3xl font-bold text-pink-dark mb-6 transition-transform hover:scale-110">
-                  {step.num}
-                </div>
-                <h4 className="text-lg font-bold text-medical-blue mb-2">{step.title}</h4>
-                <p className="text-sm text-slate-500 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
+            return (
+              <React.Fragment key={step.id}>
+                <Stack 
+                  direction="row" 
+                  spacing={1.5} 
+                  sx={{ 
+                    alignItems: "center",
+                    width: { xs: '100%', md: 'calc(50% - 16px)', lg: 'auto' },
+                    flex: { lg: 1 }
+                  }}
+                >
+                  {/* Circle */}
+                  <Box 
+                    sx={{ 
+                      width: 48, 
+                      height: 48, 
+                      borderRadius: '50%', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      fontWeight: 700,
+                      fontSize: '1rem',
+                      flexShrink: 0,
+                      ...(isCompleted && {
+                        bgcolor: '#8B5CF6',
+                        color: 'white',
+                      }),
+                      ...(isActive && {
+                        background: 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
+                        color: 'white',
+                        boxShadow: '0 4px 20px rgba(236,72,153,0.4)',
+                      }),
+                      ...(isUpcoming && {
+                        bgcolor: 'white',
+                        border: '2px solid #e9d5ff',
+                        color: '#8B5CF6',
+                      }),
+                    }}
+                  >
+                    {step.id}
+                  </Box>
 
-        </div>
+                  {/* Text */}
+                  <Box>
+                    <Typography sx={{ fontWeight: 800, fontSize: '15px', color: '#1E293B', lineHeight: 1.3, whiteSpace: 'pre-line' }}>
+                      {step.title}
+                    </Typography>
+                    <Typography sx={{ fontSize: '13px', color: '#64748b', mt: 0.5, lineHeight: 1.4, whiteSpace: 'pre-line' }}>
+                      {step.desc}
+                    </Typography>
+                  </Box>
+                </Stack>
+
+                {/* Connectors */}
+                {index < steps.length - 1 && (
+                  <>
+                    {/* Horizontal Arrow Connector (Tablet/Desktop) */}
+                    <Box sx={{ 
+                      display: { xs: 'none', md: 'flex' }, 
+                      alignItems: 'center', 
+                      width: 32,
+                      flexShrink: 0
+                    }}>
+                      <Box sx={{ 
+                        flex: 1, 
+                        height: '2px', 
+                        bgcolor: isCompleted ? '#8B5CF6' : 'transparent',
+                        borderTop: isCompleted ? 'none' : '2px dashed #d8b4fe',
+                      }} />
+                      <Box sx={{ 
+                        width: 0, 
+                        height: 0, 
+                        borderTop: '4px solid transparent', 
+                        borderBottom: '4px solid transparent', 
+                        borderLeft: `6px solid ${isCompleted ? '#8B5CF6' : '#d8b4fe'}`,
+                        ml: '-1px'
+                      }} />
+                    </Box>
+
+                    {/* Vertical Divider Connector (Mobile) */}
+                    <Box 
+                      sx={{ 
+                        display: { xs: 'block', md: 'none' },
+                        width: '2px', 
+                        height: '24px', 
+                        bgcolor: isCompleted ? '#8B5CF6' : 'transparent',
+                        borderLeft: isCompleted ? 'none' : '2px dashed #d8b4fe',
+                        ml: '23px', // centers perfectly under the 48px circle
+                      }} 
+                    />
+                  </>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </Stack>
+        
       </div>
-    </section>
+    </Box>
   );
 }

@@ -39,7 +39,7 @@ export function Navbar() {
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center h-full">
+        <div className="hidden lg:flex flex-1 justify-center items-center h-full">
           <ul className="flex items-center gap-8 h-full">
             {navLinks.map((link) => (
               <li key={link.name} className="h-full flex items-center relative">
@@ -64,7 +64,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-6">
           <div className="flex items-center gap-2 text-[15px] font-[700] text-text">
             <IconPhone className="w-5 h-5 text-primary" stroke={2} />
-            <span>+91 99898 88776</span>
+            <span>72079 05599</span>
           </div>
           <button className="bg-pink hover:bg-[#e03a83] text-white rounded-[10px] px-6 h-[46px] text-[15px] font-[600] transition-colors shadow-sm">
             Book Appointment
@@ -104,7 +104,7 @@ export function Navbar() {
           <div className="flex flex-col gap-4 pt-4 border-t border-[#eef3f8]">
             <div className="flex items-center gap-2 text-[15px] font-[700] text-text justify-center">
               <IconPhone className="w-5 h-5 text-primary" stroke={2} />
-              <span>+91 99898 88776</span>
+              <span>72079 05599</span>
             </div>
             <button className="bg-pink hover:bg-[#e03a83] text-white rounded-[10px] px-6 h-[46px] text-[15px] font-[600] w-full transition-colors">
               Book Appointment

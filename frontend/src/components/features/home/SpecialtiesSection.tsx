@@ -1,5 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Baby, ActivitySquare, Stethoscope, HeartPulse } from "lucide-react";
+import { ArrowRight, Baby, ActivitySquare, Stethoscope, HeartPulse, Check } from "lucide-react";
 
 export function SpecialtiesSection() {
   return (
@@ -11,95 +10,96 @@ export function SpecialtiesSection() {
           <h3 className="text-3xl md:text-4xl font-extrabold text-medical-blue">Comprehensive Care for You and Your Family</h3>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* 2-Column Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto p-4">
           
-          {/* Gynecology - Large Block */}
-          <Card className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-pink-50 to-white border-pink-100 hover:shadow-xl transition-shadow group overflow-hidden">
-            <CardContent className="p-8 md:p-12 h-full flex flex-col justify-between">
-              <div>
-                <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-dark mb-6 group-hover:scale-110 transition-transform">
-                  <Baby className="w-8 h-8" />
-                </div>
-                <h4 className="text-2xl font-bold text-medical-blue mb-4">Gynecology & Obstetrics</h4>
-                <ul className="space-y-3 mb-8">
-                  {["Pregnancy Care", "High-Risk Pregnancy", "PCOS Treatment", "Infertility Care", "Menopause Care"].map((item, i) => (
-                    <li key={i} className="flex items-center text-slate-700">
-                      <span className="w-2 h-2 rounded-full bg-pink-400 mr-3"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+          {/* Card 1 - Gynecology */}
+          <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="p-3 bg-pink-50 rounded-xl text-pink-500">
+                <Baby className="w-8 h-8" />
               </div>
-              <a href="#" className="inline-flex items-center text-pink-dark font-semibold group-hover:underline">
-                View All Services <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </CardContent>
-          </Card>
+              <h3 className="text-xl font-bold text-slate-800">Gynecology & Obstetrics</h3>
+            </div>
+            <p className="text-slate-600 mb-6 text-sm">Complete women's healthcare from adolescence to menopause with compassionate care.</p>
+            <ul className="space-y-3 mb-8">
+              {["Pregnancy Care", "High-Risk Pregnancy", "PCOS Treatment", "Infertility Care", "Menopause Care"].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-slate-700 text-sm">
+                  <Check className="w-4 h-4 text-pink-500 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="#" className="text-pink-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
+              Learn More <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
 
-          {/* Orthopedics */}
-          <Card className="bg-gradient-to-br from-blue-50 to-white border-blue-100 hover:shadow-xl transition-shadow group">
-            <CardContent className="p-8 h-full flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6 group-hover:scale-110 transition-transform">
-                  <ActivitySquare className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-bold text-medical-blue mb-4">Orthopedics & Joint Care</h4>
-                <ul className="space-y-2 mb-6">
-                  {["Joint Replacement", "Knee & Hip Pain", "Arthroscopy", "Fracture Treatment"].map((item, i) => (
-                    <li key={i} className="flex items-center text-sm text-slate-700">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mr-2"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+          {/* Card 2 - Orthopedics */}
+          <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="p-3 bg-blue-50 rounded-xl text-blue-500">
+                <ActivitySquare className="w-8 h-8" />
               </div>
-              <a href="#" className="inline-flex items-center text-blue-600 font-semibold text-sm group-hover:underline">
-                View All Services <ArrowRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </CardContent>
-          </Card>
+              <h3 className="text-xl font-bold text-slate-800">Orthopedics & Joint Care</h3>
+            </div>
+            <p className="text-slate-600 mb-6 text-sm">Advanced joint care, pain relief, and mobility restoration tailored to your needs.</p>
+            <ul className="space-y-3 mb-8">
+              {["Joint Replacement", "Knee & Hip Pain", "Arthroscopy", "Fracture Treatment", "Sports Injuries"].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-slate-700 text-sm">
+                  <Check className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="#" className="text-blue-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
+              Learn More <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
 
-          {/* Diagnostics */}
-          <Card className="bg-gradient-to-br from-green-50 to-white border-green-100 hover:shadow-xl transition-shadow group">
-            <CardContent className="p-8 h-full flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-6 group-hover:scale-110 transition-transform">
-                  <Stethoscope className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-bold text-medical-blue mb-4">Diagnostics</h4>
-                <ul className="space-y-2 mb-6">
-                  {["Ultrasound", "Laboratory Tests", "X-Ray", "Pathology"].map((item, i) => (
-                    <li key={i} className="flex items-center text-sm text-slate-700">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 mr-2"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+          {/* Card 3 - Diagnostics */}
+          <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="p-3 bg-green-50 rounded-xl text-green-500">
+                <Stethoscope className="w-8 h-8" />
               </div>
-              <a href="#" className="inline-flex items-center text-green-600 font-semibold text-sm group-hover:underline">
-                View All Services <ArrowRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
-            </CardContent>
-          </Card>
+              <h3 className="text-xl font-bold text-slate-800">Diagnostics</h3>
+            </div>
+            <p className="text-slate-600 mb-6 text-sm">Accurate tests and advanced imaging to support better diagnosis and treatment.</p>
+            <ul className="space-y-3 mb-8">
+              {["Ultrasound", "Laboratory Tests", "Digital X-Ray", "Pathology Services", "Health Packages"].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-slate-700 text-sm">
+                  <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="#" className="text-green-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
+              Learn More <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
 
-          {/* Surgeries & Treatments - Full Width Bottom Row */}
-          <Card className="md:col-span-3 bg-slate-50 border-slate-200 hover:shadow-xl transition-shadow group">
-            <CardContent className="p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div className="flex items-center gap-6">
-                <div className="w-16 h-16 bg-slate-200 rounded-2xl flex items-center justify-center text-slate-700 flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <HeartPulse className="w-8 h-8" />
-                </div>
-                <div>
-                  <h4 className="text-2xl font-bold text-medical-blue mb-2">Surgeries & Advanced Treatments</h4>
-                  <p className="text-slate-600">From minor procedures to complex interventions, performed in state-of-the-art operation theaters.</p>
-                </div>
+          {/* Card 4 - Surgeries */}
+          <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="p-3 bg-indigo-50 rounded-xl text-indigo-500">
+                <HeartPulse className="w-8 h-8" />
               </div>
-              <a href="#" className="inline-flex flex-shrink-0 items-center px-6 py-3 rounded-full bg-medical-blue text-white font-semibold hover:bg-blue-900 transition-colors">
-                Explore Treatments <ArrowRight className="ml-2 w-4 h-4" />
-              </a>
-            </CardContent>
-          </Card>
+              <h3 className="text-xl font-bold text-slate-800">Surgeries & Treatments</h3>
+            </div>
+            <p className="text-slate-600 mb-6 text-sm">From minor procedures to complex interventions in state-of-the-art facilities.</p>
+            <ul className="space-y-3 mb-8">
+              {["General Surgery", "Laparoscopic Surgery", "Day Care Procedures", "Specialized Care", "Post-op Recovery"].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-slate-700 text-sm">
+                  <Check className="w-4 h-4 text-indigo-500 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href="#" className="text-indigo-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
+              Learn More <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
 
         </div>
       </div>

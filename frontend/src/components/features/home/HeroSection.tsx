@@ -1,11 +1,14 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { motion } from "framer-motion";
-import Tilt from "react-parallax-tilt";
+
 import { 
   IconShieldCheck, 
   IconCalendar, 
-  IconPhone
+  IconPhone,
+  IconPlus,
+  IconDiamond,
+  IconBrandWhatsapp
 } from "@tabler/icons-react";
 
 export function HeroSection() {
@@ -31,10 +34,25 @@ export function HeroSection() {
     <section 
       id="home"
       ref={sectionRef}
-      className="relative overflow-hidden font-sans pt-32 lg:pt-40"
-      style={{ background: "linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%)" }}
+      className="relative overflow-hidden font-sans pt-32 lg:pt-40 z-0"
+      style={{ background: "linear-gradient(180deg, #f9fbff 0%, #eef6ff 100%)" }}
     >
       <div className="flex flex-col-reverse lg:flex-row h-auto lg:h-[720px] max-w-[1400px] mx-auto relative z-10">
+        {/* Layer 9 — Decorative Medical Symbols */}
+        <IconPlus className="absolute top-[15%] left-[3%] text-primary opacity-15 w-8 h-8 z-0 hidden lg:block" stroke={1.5} />
+        <IconDiamond className="absolute top-[10%] right-[12%] text-primary opacity-15 w-6 h-6 z-0 hidden lg:block" stroke={1.5} />
+        <IconPlus className="absolute bottom-[10%] left-[48%] text-pink opacity-15 w-7 h-7 z-0 hidden lg:block" stroke={1.5} />
+        <IconDiamond className="absolute top-[40%] right-[42%] text-primary opacity-15 w-5 h-5 z-0 hidden lg:block" stroke={1.5} />
+
+        {/* Layer 4 — Dotted Pattern */}
+        <div 
+          className="absolute top-0 right-0 w-[400px] h-[400px] z-0 opacity-60 pointer-events-none hidden lg:block"
+          style={{
+            backgroundImage: "radial-gradient(#d9e7ff 2px, transparent 2px)",
+            backgroundSize: "24px 24px",
+            WebkitMaskImage: "radial-gradient(circle, black 0%, transparent 70%)"
+          }}
+        />
         
         {/* Left Content - 45% */}
         <div className="w-full lg:w-[45%] flex items-center relative z-20">
@@ -72,26 +90,14 @@ export function HeroSection() {
                   <IconPhone className="w-5 h-5 text-primary" stroke={2} />
                   Call Now
                 </button>
+                <button className="bg-white hover:bg-[#e8fce8] text-[#12284C] border border-[#E8EEF7] hover:border-[#25D366] rounded-[10px] px-8 h-[54px] text-[16px] font-[600] transition-all flex items-center justify-center gap-2.5 shadow-sm">
+                  <IconBrandWhatsapp className="w-5 h-5 text-[#25D366]" stroke={2} />
+                  WhatsApp
+                </button>
               </div>
               
-              {/* Hero Statistics */}
-              <div className="gsap-stats grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 lg:pt-16">
-                <div>
-                  <h3 className="text-[32px] font-[800] text-primary">12+</h3>
-                  <p className="text-[15px] text-muted font-medium">Years of Excellence</p>
-                </div>
-                <div>
-                  <h3 className="text-[32px] font-[800] text-primary">50+</h3>
-                  <p className="text-[15px] text-muted font-medium">Specialized Doctors</p>
-                </div>
-                <div>
-                  <h3 className="text-[32px] font-[800] text-primary">1,000+</h3>
-                  <p className="text-[15px] text-muted font-medium">Happy Patients</p>
-                </div>
-                <div>
-                  <h3 className="text-[32px] font-[800] text-primary">20+</h3>
-                  <p className="text-[15px] text-muted font-medium">Advanced Treatments</p>
-                </div>
+              <div className="gsap-stats pt-4 text-muted font-medium text-[16px]">
+                Call or WhatsApp: <span className="text-primary font-[800] tracking-wide">72079 05599</span>
               </div>
               
             </div>
@@ -101,31 +107,16 @@ export function HeroSection() {
         {/* Right Visual - 55% */}
         <div className="gsap-visual w-full lg:w-[55%] relative flex items-center justify-center h-[450px] md:h-[600px] lg:h-[800px] overflow-visible z-10">
           
-          {/* Layer 1 — Main Ellipse Parallax */}
-          <Tilt 
-            className="absolute right-[-30px] top-[50px] w-[850px] h-[600px] z-0 hidden lg:block pointer-events-none"
-            trackOnWindow={true}
-            tiltMaxAngleX={3}
-            tiltMaxAngleY={3}
-            transitionSpeed={1500}
-            gyroscope={true}
-          >
-            <div className="w-full h-full rounded-full bg-[#e9f4ff] blur-sm" />
-          </Tilt>
+          {/* Decorative Blobs Behind Image */}
+          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-blue-200/30 blur-[120px] -z-10"></div>
+          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-pink-100/40 blur-[120px] -z-10"></div>
 
-          {/* Layer 7 — Soft Medical Glow Pulse */}
-          <motion.div 
-            className="absolute top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-300 blur-[150px] rounded-full z-[5] pointer-events-none"
-            animate={{ scale: [1, 1.03, 1], opacity: [0.18, 0.22, 0.18] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          />
-          
-          {/* Main Image with Floating animation */}
-          <div className="relative z-[20] w-full flex justify-center lg:justify-end">
+          {/* Layer 5 & 6 — Main Characters Image */}
+          <div className="relative z-[30] w-full flex justify-center lg:justify-end">
             <motion.img
               src="/assests/image.png"
               alt="Tara Clinics Medical Team"
-              className="w-[120%] md:w-[130%] lg:w-[1150px] max-w-none object-contain relative right-[-80px]"
+              className="w-full sm:w-[95%] md:w-[130%] lg:w-[1200px] max-w-full md:max-w-none object-contain relative right-0 md:right-[-60px] lg:right-[-100px] mx-auto"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
             />
