@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #0F4CDD;
+    --primary-light: #EAF4FF;
+    --pink: #FD1843;
+    --pink-light: #FFF9FA;
+    --text: #12284C;
+    --muted: #6B7280;
+    --border: #E8EEF7;
+    --background: #FFFFFF;
+    --section: #F8FBFF;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-text;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Swiper Pagination Customization */
+.swiper-pagination-custom .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--muted);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 4px;
+  background: var(--primary);
+  opacity: 1;
+}
