@@ -10,9 +10,9 @@ export interface GalleryImage {
 const mockGallery: GalleryImage[] = [
   { id: "1", url: "/assests/tara-clinicsexterior.png", category: "Infrastructure", alt: "Clinic Exterior" },
   { id: "2", url: "/assests/tara-clinicsinterior.png", category: "Consultation", alt: "Waiting Area" },
-  { id: "3", url: "", category: "Cabin", alt: "Doctor's Cabin" },
-  { id: "4", url: "", category: "Equipment", alt: "Advanced Diagnostics" },
-  { id: "5", url: "", category: "Patient Care", alt: "Patient Ward" }
+  { id: "3", url: "/assests/tara-clinicscabin.png", category: "Cabin", alt: "Doctor's Cabin" },
+  { id: "4", url: "/assests/tara-clinicsequipment.png", category: "Equipment", alt: "Advanced Diagnostics" },
+  { id: "5", url: "/assests/tara-clinicspatientcare.png", category: "Patient Care", alt: "Patient Ward" }
 ];
 
 export function ClinicGallery() {
