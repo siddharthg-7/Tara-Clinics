@@ -3,8 +3,8 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 const IMAGES = [
-  { src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80", alt: "Clinic Entrance" },
-  { src: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&q=80", alt: "Consultation Room" },
+  { src: "/assests/tara-clinicsexterior.png", alt: "Clinic Entrance" },
+  { src: "/assests/tara-clinicsinterior.png", alt: "Consultation Room" },
   { src: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80", alt: "Advanced Equipment" },
   { src: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80", alt: "Patient Ward" },
   { src: "https://images.unsplash.com/photo-1504813184591-01572f98c85e?w=800&q=80", alt: "Waiting Area" },

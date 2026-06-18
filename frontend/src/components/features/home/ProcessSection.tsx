@@ -157,7 +157,7 @@ export function ProcessSection() {
           })}
         </Stack>
         
-      </div>
+      </Box>
     </Box>
   );
 }

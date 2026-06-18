@@ -8,8 +8,8 @@ export interface GalleryImage {
 }
 
 const mockGallery: GalleryImage[] = [
-  { id: "1", url: "", category: "Infrastructure", alt: "Clinic Exterior" },
-  { id: "2", url: "", category: "Consultation", alt: "Waiting Area" },
+  { id: "1", url: "/assests/tara-clinicsexterior.png", category: "Infrastructure", alt: "Clinic Exterior" },
+  { id: "2", url: "/assests/tara-clinicsinterior.png", category: "Consultation", alt: "Waiting Area" },
   { id: "3", url: "", category: "Cabin", alt: "Doctor's Cabin" },
   { id: "4", url: "", category: "Equipment", alt: "Advanced Diagnostics" },
   { id: "5", url: "", category: "Patient Care", alt: "Patient Ward" }
@@ -32,10 +32,17 @@ export function ClinicGallery() {
               key={img.id} 
               className={`group relative overflow-hidden rounded-2xl bg-slate-200 aspect-[4/3] md:aspect-auto ${idx < 2 ? 'md:col-span-1 lg:col-span-1 xl:col-span-2 xl:aspect-video' : 'xl:aspect-[4/5]'}`}
             >
-              {/* Image Placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-200 group-hover:scale-110 transition-transform duration-500">
-                <span className="text-sm font-medium text-slate-400">Placeholder<br/>{img.category}</span>
-              </div>
+              {img.url ? (
+                <img 
+                  src={img.url} 
+                  alt={img.alt} 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center bg-slate-200 group-hover:scale-110 transition-transform duration-500">
+                  <span className="text-sm font-medium text-slate-400">Placeholder<br/>{img.category}</span>
+                </div>
+              )}
               
               <div className="absolute inset-0 bg-gradient-to-t from-medical-blue/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-6">
