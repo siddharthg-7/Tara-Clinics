@@ -30,7 +30,7 @@ export function ClinicGallery() {
           {mockGallery.map((img, idx) => (
             <div 
               key={img.id} 
-              className={`group relative overflow-hidden rounded-2xl bg-slate-200 aspect-[4/3] md:aspect-auto ${idx < 2 ? 'md:col-span-1 lg:col-span-1 xl:col-span-2 xl:aspect-video' : 'xl:aspect-[4/5]'}`}
+              className={`group relative overflow-hidden rounded-2xl bg-slate-200 aspect-[4/3] ${idx < 2 ? 'md:col-span-1 lg:col-span-1 xl:col-span-2 xl:aspect-video' : 'xl:aspect-[4/5]'}`}
             >
               {img.url ? (
                 <img 
