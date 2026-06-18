@@ -1,20 +1,48 @@
 import { ArrowRight, Baby, ActivitySquare, Stethoscope, HeartPulse, Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function SpecialtiesSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
     <section id="treatments" className="py-20 bg-white relative">
       <div className="container mx-auto px-4">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-sm font-bold tracking-wider text-pink-dark uppercase mb-3">Our Specialities & Treatments</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-medical-blue">Comprehensive Care for You and Your Family</h3>
-        </div>
+        </motion.div>
 
         {/* 2-Column Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto p-4">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto p-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           
           {/* Card 1 - Gynecology */}
-          <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
+          <motion.div variants={cardVariants} className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
             <div className="flex items-center gap-4 mb-4">
               <div className="p-3 bg-pink-50 rounded-xl text-pink-500">
                 <Baby className="w-8 h-8" />
@@ -33,10 +61,10 @@ export function SpecialtiesSection() {
             <a href="#" className="text-pink-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
               Learn More <ArrowRight className="w-4 h-4" />
             </a>
-          </div>
+          </motion.div>
 
           {/* Card 2 - Orthopedics */}
-          <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
+          <motion.div variants={cardVariants} className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
             <div className="flex items-center gap-4 mb-4">
               <div className="p-3 bg-blue-50 rounded-xl text-blue-500">
                 <ActivitySquare className="w-8 h-8" />
@@ -55,10 +83,10 @@ export function SpecialtiesSection() {
             <a href="#" className="text-blue-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
               Learn More <ArrowRight className="w-4 h-4" />
             </a>
-          </div>
+          </motion.div>
 
           {/* Card 3 - Diagnostics */}
-          <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
+          <motion.div variants={cardVariants} className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
             <div className="flex items-center gap-4 mb-4">
               <div className="p-3 bg-green-50 rounded-xl text-green-500">
                 <Stethoscope className="w-8 h-8" />
@@ -77,10 +105,10 @@ export function SpecialtiesSection() {
             <a href="#" className="text-green-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
               Learn More <ArrowRight className="w-4 h-4" />
             </a>
-          </div>
+          </motion.div>
 
           {/* Card 4 - Surgeries */}
-          <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
+          <motion.div variants={cardVariants} className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all">
             <div className="flex items-center gap-4 mb-4">
               <div className="p-3 bg-indigo-50 rounded-xl text-indigo-500">
                 <HeartPulse className="w-8 h-8" />
@@ -99,9 +127,9 @@ export function SpecialtiesSection() {
             <a href="#" className="text-indigo-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
               Learn More <ArrowRight className="w-4 h-4" />
             </a>
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

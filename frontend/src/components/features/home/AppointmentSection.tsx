@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IconPhone, IconMail, IconMapPin } from "@tabler/icons-react";
+import { motion } from "framer-motion";
 
 export function AppointmentSection() {
   const [formData, setFormData] = useState({
@@ -40,16 +41,28 @@ export function AppointmentSection() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 z-0"></div>
       
       <div className="container max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-[40px] font-[800] text-white">
             Book Your Appointment
           </h2>
-        </div>
+        </motion.div>
 
         <div className="max-w-[1100px] mx-auto grid lg:grid-cols-5 gap-10 lg:gap-16 items-center">
           
           {/* Left Side: Info */}
-          <div className="lg:col-span-2 space-y-8 relative z-20">
+          <motion.div 
+            className="lg:col-span-2 space-y-8 relative z-20"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <h3 className="text-[28px] font-[700] text-white mb-6 leading-tight">
               Schedule Your<br/>Appointment Today
             </h3>
@@ -88,10 +101,16 @@ export function AppointmentSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side: Form */}
-          <div className="lg:col-span-3 relative z-20">
+          <motion.div 
+            className="lg:col-span-3 relative z-20"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             <div className="bg-white rounded-[24px] p-8 md:p-[40px] shadow-[0_20px_40px_rgba(0,0,0,0.05)] border border-[#eef3f8]">
               {submitStatus === "success" && (
                 <div className="mb-6 p-4 bg-[#eaf4ff] border border-primary/20 text-primary rounded-xl font-[500]">
@@ -183,7 +202,7 @@ export function AppointmentSection() {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

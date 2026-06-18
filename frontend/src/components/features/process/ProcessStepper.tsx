@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export function ProcessStepper() {
   const steps = [
     {
@@ -42,23 +44,49 @@ export function ProcessStepper() {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const stepVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
     <section id="journey" className="py-20 lg:py-28 bg-white overflow-hidden">
       <div className="container max-w-[1400px] mx-auto px-4 md:px-8">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-[40px] font-[800] text-text">
             Your Journey to Better Health
           </h2>
-        </div>
+        </motion.div>
 
         <div className="max-w-[1200px] mx-auto relative px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-0 pb-8">
-            {steps.map((step, index) => (
-              <div 
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-0 pb-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            {steps.map((step) => (
+              <motion.div 
                 key={step.id}
+                variants={stepVariants}
                 className="flex flex-row lg:flex-col items-center lg:text-center relative group w-full"
-                data-aos="fade-right"
-                data-aos-delay={index * 100}
               >
                 {/* Horizontal connecting line & Arrow (Desktop) */}
                 <div className="hidden lg:flex absolute top-[39px] left-[50%] w-full items-center -z-10 group-last:hidden text-[#d1dceb] pr-12">
@@ -88,9 +116,9 @@ export function ProcessStepper() {
                     {step.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

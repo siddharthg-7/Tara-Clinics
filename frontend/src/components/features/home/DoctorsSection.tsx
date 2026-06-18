@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, Clock, Activity } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface Doctor {
   id: string;
@@ -40,18 +41,45 @@ const DOCTORS: Doctor[] = [
 ];
 
 export function DoctorsSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
     <section id="doctors" className="py-20 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-4">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-sm font-bold tracking-wider text-pink-dark uppercase mb-3">Our Specialists</h2>
           <h3 className="text-3xl md:text-4xl font-extrabold text-medical-blue">Meet Our Expert Doctors</h3>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <motion.div 
+          className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {DOCTORS.map((doc) => (
-            <div key={doc.id} className="transition-transform hover:-translate-y-2 hover:scale-[1.02] duration-300">
+            <motion.div key={doc.id} variants={cardVariants} className="transition-transform hover:-translate-y-2 hover:scale-[1.02] duration-300">
               <Card className="overflow-hidden border-slate-200 shadow-md hover:shadow-2xl transition-shadow">
                 <CardContent className="p-0">
                   <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 items-start">
@@ -108,9 +136,9 @@ export function DoctorsSection() {
                   </div>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>
