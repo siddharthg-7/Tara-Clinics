@@ -17,14 +17,14 @@ export function FloatingContactBar() {
       icon: <IconPhone stroke={2} className="w-5 h-5 text-white" />,
       color: "bg-pink hover:bg-[#e03a83]",
       label: "Call Now",
-      href: "tel:+919989888776"
+      href: "tel:+917207905599"
     },
     {
       id: "whatsapp",
       icon: <IconBrandWhatsapp stroke={2} className="w-5 h-5 text-white" />,
       color: "bg-[#25D366] hover:bg-[#1fae54]",
       label: "WhatsApp",
-      href: "https://wa.me/919989888776"
+      href: "https://wa.me/917207905599"
     }
   ];
 

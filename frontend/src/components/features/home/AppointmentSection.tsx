@@ -64,7 +64,7 @@ export function AppointmentSection() {
                 </div>
                 <div>
                   <p className="text-[14px] text-blue-200/60 mb-1 font-[500]">Call Us</p>
-                  <p className="text-[18px] font-[600] text-white">+91 99898 88776</p>
+                  <p className="text-[18px] font-[600] text-white">+91 72079 05599</p>
                 </div>
               </div>
               
